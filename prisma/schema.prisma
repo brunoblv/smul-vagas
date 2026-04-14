@@ -4,19 +4,17 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
 }
 
 model Vaga {
   id                    String          @id @default(cuid())
   titulo                String
   departamento          String
-  modalidade            String          @default("Híbrido")
+  modalidade            String          @default("Presencial")
   descricaoAtividades   String
   habilidadesDesejaveis String?
   curso                 String
-  semestreMinimo        Int
-  totalSemestres        Int
   cargaHoraria          Int
   bolsaAuxilio          Decimal
   valeTransporte        Decimal

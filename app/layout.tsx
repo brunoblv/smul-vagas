@@ -1,22 +1,22 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter'
 });
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: '--font-space-grotesk'
 });
 
 export const metadata: Metadata = {
-  title: 'Portal de Vagas - Prefeitura Municipal',
-  description: 'Portal de candidaturas para vagas de emprego da Prefeitura Municipal. Encontre oportunidades e candidate-se às vagas disponíveis.',
-  generator: 'v0.app',
+  title: 'SUL — Gestão de Vagas de Estágio',
+  description: 'Sistema de gestão de vagas de estágio da Secretaria de Urbanismo e Licenciamento.',
   icons: {
     icon: [
       {
@@ -42,9 +42,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
+        <Toaster richColors position="top-right" />
         <Analytics />
       </body>
     </html>
