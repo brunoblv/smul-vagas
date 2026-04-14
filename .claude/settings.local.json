@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat c:/Users/d854440/Sistemas/smul-vagas/app/vaga/[id]/page.tsx)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)"
+    ]
+  }
+}

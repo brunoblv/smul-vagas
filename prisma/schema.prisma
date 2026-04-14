@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Vaga {
+  id                    String          @id @default(cuid())
+  titulo                String
+  departamento          String
+  modalidade            String          @default("Híbrido")
+  descricaoAtividades   String
+  habilidadesDesejaveis String?
+  curso                 String
+  semestreMinimo        Int
+  totalSemestres        Int
+  cargaHoraria          Int
+  bolsaAuxilio          Decimal
+  valeTransporte        Decimal
+  prazoInscricoes       DateTime
+  numeroVagas           Int
+  responsavel           String
+  etapas                EtapaProcesso[]
+  status                String          @default("ativa")
+  criadoEm              DateTime        @default(now())
+  atualizadoEm          DateTime        @updatedAt
+}
+
+model EtapaProcesso {
+  id     String @id @default(cuid())
+  ordem  Int
+  titulo String
+  vagaId String
+  vaga   Vaga   @relation(fields: [vagaId], references: [id])
+}
